@@ -6,7 +6,7 @@
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 14:39:04 by timschmi          #+#    #+#             */
-/*   Updated: 2024/03/18 16:57:39 by timschmi         ###   ########.fr       */
+/*   Updated: 2024/03/19 16:37:21 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,18 @@ static void ft_ident(const char c, va_list args)
 {
 	if (c == 'd')
 		ft_putnbr(va_arg(args, int));
+	else if (c == 'i')
+		ft_putnbr(va_arg(args, int));
+	else if (c == 'u')
+		ft_putunbr(va_arg(args, unsigned int));
 	else if (c == 's')
 		ft_putstr(va_arg(args, char*));
 	else if (c == 'c')
 		ft_putchar(va_arg(args, int));
+	else if (c == 'x')
+		ft_puthex(va_arg(args, int));
+	else if (c == 'X')
+		ft_putheX(va_arg(args, int));
 	else if (c == '%')
 		write(1, "%", 1);
 }
@@ -32,12 +40,11 @@ static void ft_printcheck(const char *str, va_list args)
 	i = 0;
 	while (str[i])
 	{
-		if (!(ft_checkset(&str[i])))
+		if (!(ft_checkset(&str[i])) && str[i] != '%')
 			write(1, &str[i], 1);
 		if (ft_checkset(&str[i]))
 		{
 			ft_ident(str[i +1], args);
-			// write (1, &str[i + 1], 1);
 			i +=2;
 		}
 		else
@@ -60,8 +67,12 @@ int ft_printf(const char *str, ...)
 
 int main(void)
 {	
-	int i = 42;
+	int i = -2147483648;
+	int j = 777;
+	int hex = 450;
+	unsigned int u = 4294967295;
 	char *str = "test";
 	char c = 'A';
-	ft_printf("Hello %d, this is a %s %c %%.\n", i, str, c);
+	ft_printf("Int (d): %d\nInt (i): %i\nUnsigned int (u): %u\nHex (x): %x\nHex (X): %X\nString (s): %s\nChar (c): %c\nPercent (%%): %%\n", i, j, u, hex, hex, str, c);
+	printf("Int (d): %d\nInt (i): %i\nUnsigned int (u): %u\nHex (x): %x\nHex (X): %X\nString (s): %s\nChar (c): %c\nPercent (%%): %%\n", i, j, u, hex, hex, str, c);
 }
