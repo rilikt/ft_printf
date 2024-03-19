@@ -6,7 +6,7 @@
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 14:32:40 by timschmi          #+#    #+#             */
-/*   Updated: 2024/03/19 16:25:21 by timschmi         ###   ########.fr       */
+/*   Updated: 2024/03/19 17:12:39 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ extern void ft_putstr(const char *str);
 extern void ft_putchar(const char c);
 extern int ft_countarg(const char* str);
 extern int ft_checkset(const char *str);
+extern void ft_putptr(void *ptr);
 
 
 

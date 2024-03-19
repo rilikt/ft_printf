@@ -6,11 +6,11 @@
 #    By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/11 13:00:34 by timschmi          #+#    #+#              #
-#    Updated: 2024/03/19 16:21:51 by timschmi         ###   ########.fr        #
+#    Updated: 2024/03/19 17:12:25 by timschmi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = ft_printf.c ft_putnbr.c ft_putstr.c ft_countarg.c ft_checkset.c ft_putchar.c ft_putunbr.c ft_puthex.c
+SRCS = ft_printf.c ft_putnbr.c ft_putstr.c ft_countarg.c ft_checkset.c ft_putchar.c ft_putunbr.c ft_puthex.c ft_putptr.c
 
 OFILES = $(SRCS:.c=.o)
 

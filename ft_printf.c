@@ -6,7 +6,7 @@
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 14:39:04 by timschmi          #+#    #+#             */
-/*   Updated: 2024/03/19 16:37:21 by timschmi         ###   ########.fr       */
+/*   Updated: 2024/03/19 17:23:52 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ static void ft_ident(const char c, va_list args)
 		ft_puthex(va_arg(args, int));
 	else if (c == 'X')
 		ft_putheX(va_arg(args, int));
+	else if (c == 'p')
+		ft_putptr(va_arg(args, void *));
 	else if (c == '%')
 		write(1, "%", 1);
 }
@@ -73,6 +75,7 @@ int main(void)
 	unsigned int u = 4294967295;
 	char *str = "test";
 	char c = 'A';
-	ft_printf("Int (d): %d\nInt (i): %i\nUnsigned int (u): %u\nHex (x): %x\nHex (X): %X\nString (s): %s\nChar (c): %c\nPercent (%%): %%\n", i, j, u, hex, hex, str, c);
-	printf("Int (d): %d\nInt (i): %i\nUnsigned int (u): %u\nHex (x): %x\nHex (X): %X\nString (s): %s\nChar (c): %c\nPercent (%%): %%\n", i, j, u, hex, hex, str, c);
+	ft_printf("Int (d): %d\nInt (i): %i\nUnsigned int (u): %u\nHex (x): %x\nHex (X): %X\nAdress (p): %p\nString (s): %s\nChar (c): %c\nPercent (%%): %%\n", i, j, u, hex, hex, (void *)&i, str, c);
+
+	printf("Int (d): %d\nInt (i): %i\nUnsigned int (u): %u\nHex (x): %x\nHex (X): %X\nAdress (p): %p\nString (s): %s\nChar (c): %c\nPercent (%%): %%\n", i, j, u, hex, hex, (void *)&i, str, c);
 }
