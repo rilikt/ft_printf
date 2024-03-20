@@ -13,7 +13,7 @@
 #include "ft_printf.h"
 #include "libft/libft.h"
 
-static int	ft_hexlen(long int hex)
+static int	ft_hexlen(long long int hex)
 {
 	int	len;
 	int	j;
@@ -29,7 +29,7 @@ static int	ft_hexlen(long int hex)
 	return (len);
 }
 
-void	ft_puthex(long int hex)
+void	ft_puthex(long long int hex)
 {
 	int		len;
 	char	*arr;
@@ -54,7 +54,7 @@ void	ft_puthex(long int hex)
 	free(arr);
 }
 
-void	ft_putheX(long int hex)
+void	ft_putheX(long long int hex)
 {
 	int len;
 	char *arr;

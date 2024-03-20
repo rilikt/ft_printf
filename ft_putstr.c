@@ -13,14 +13,17 @@
 #include "ft_printf.h"
 #include "libft/libft.h"
 
-void	ft_putstr(const char *str)
+int	ft_putstr(const char *str)
 {
 	int i;
 
 	i = 0;
+	if (str == NULL)
+		return (0);
 	while (str[i])
 	{
 		write(1, &str[i], 1);
 		i++;
 	}
+	return (i);
 }

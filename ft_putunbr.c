@@ -18,15 +18,41 @@ static void	ft_print(char c)
 	write(1, &c, 1);
 }
 
-void	ft_putunbr(unsigned int i)
+static int ft_nbrlen(unsigned int i)
 {
+	int len;
+
+	len = 0;
+	if (i == 0)
+		return (1);
+	while (i > 0)
+	{
+		i /= 10;
+		len++;
+	}
+	return (len);
+}
+
+int	ft_putunbr(unsigned int i)
+{
+	int len;
+
+	len = ft_nbrlen(i);
 	if (i < 10)
 	{
 		ft_print(i + '0');
 	}
 	else
 	{
-		ft_putnbr(i / 10);
+		ft_putunbr(i / 10);
 		ft_print(i % 10 + '0');
 	}
+	return (len);
+}
+
+
+int main(void)
+{
+	int i = -10;
+	printf("%d\n", ft_putunbr(i));
 }
