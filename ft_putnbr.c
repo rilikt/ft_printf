@@ -6,20 +6,37 @@
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 14:03:25 by timschmi          #+#    #+#             */
-/*   Updated: 2024/03/18 15:13:22 by timschmi         ###   ########.fr       */
+/*   Updated: 2024/03/20 13:34:20 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/libft.h"
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-static void	ft_print(char c)
+static int	ft_print(char c)
 {
 	write(1, &c, 1);
+	return (1);
 }
 
-void	ft_putnbr(long int i)
+static int ft_nbrlen(long int i)
 {
+	int len;
+
+	len = 0;
+	while (i > 0)
+	{
+		i /= 10;
+		len++;
+	}
+	return (len);
+}
+
+int	ft_putnbr(long int i)
+{
+	int len;
+
+	len = ft_nbrlen(i);
 	if (i < 0)
 	{
 		ft_print('-');
@@ -34,4 +51,11 @@ void	ft_putnbr(long int i)
 		ft_putnbr(i / 10);
 		ft_print(i % 10 + '0');
 	}
+	return (len);
 }
+
+// int main(void)
+// {
+// 	int i = 420;
+// 	printf("%d\n", ft_putnbr(i));
+// }

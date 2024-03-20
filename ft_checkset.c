@@ -6,14 +6,14 @@
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 15:35:06 by timschmi          #+#    #+#             */
-/*   Updated: 2024/03/18 15:48:03 by timschmi         ###   ########.fr       */
+/*   Updated: 2024/03/20 13:08:53 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
 #include "libft/libft.h"
-#include "libftprintf.h"
 
-int ft_checkset(const char *str)
+int	ft_checkset(const char *str)
 {
 	char *set = "cspdiuxX%";
 	int i;
@@ -23,8 +23,8 @@ int ft_checkset(const char *str)
 	j = 0;
 	while (set[i])
 	{
-		if (str[j] == '%' && str[j+1] == set[i])
-			return(1);
+		if (str[j] == '%' && str[j + 1] == set[i])
+			return (1);
 		i++;
 	}
 	return (0);

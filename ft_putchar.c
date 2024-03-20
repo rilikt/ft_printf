@@ -6,13 +6,13 @@
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 16:51:27 by timschmi          #+#    #+#             */
-/*   Updated: 2024/03/18 16:52:46 by timschmi         ###   ########.fr       */
+/*   Updated: 2024/03/20 13:09:23 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-void ft_putchar(const char c)
+void	ft_putchar(const char c)
 {
 	write(1, &c, 1);
 }
