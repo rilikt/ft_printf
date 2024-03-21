@@ -6,11 +6,10 @@
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 14:03:25 by timschmi          #+#    #+#             */
-/*   Updated: 2024/03/20 13:34:20 by timschmi         ###   ########.fr       */
+/*   Updated: 2024/03/21 14:39:39 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
 #include "ft_printf.h"
 
 static int	ft_print(char c)
@@ -19,9 +18,9 @@ static int	ft_print(char c)
 	return (1);
 }
 
-static int ft_nbrlen(long int i)
+static int	ft_nbrlen(long int i)
 {
-	int len;
+	int	len;
 
 	len = 0;
 	if (i == 0)
@@ -41,7 +40,7 @@ static int ft_nbrlen(long int i)
 
 int	ft_putnbr(long int i)
 {
-	int len;
+	int	len;
 
 	len = ft_nbrlen(i);
 	if (i < 0)

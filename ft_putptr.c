@@ -6,12 +6,11 @@
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 17:02:44 by timschmi          #+#    #+#             */
-/*   Updated: 2024/03/21 13:30:30 by timschmi         ###   ########.fr       */
+/*   Updated: 2024/03/21 14:39:42 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "libft/libft.h"
 
 static int	ft_hexlen(unsigned long int hex)
 {
@@ -33,10 +32,10 @@ static int	ft_hexlen(unsigned long int hex)
 
 static int	ft_putptrhex(long long int hex)
 {
-	int		len;
-	char	*arr;
-	int		i;
-	unsigned long int uhex;
+	int					len;
+	char				*arr;
+	int					i;
+	unsigned long int	uhex;
 
 	i = 1;
 	uhex = (unsigned long int)hex;
@@ -62,7 +61,7 @@ static int	ft_putptrhex(long long int hex)
 int	ft_putptr(void *ptr)
 {
 	unsigned long int	i;
-	int len;
+	int					len;
 
 	i = (unsigned long int)ptr;
 	write(1, "0x", 2);

@@ -6,16 +6,15 @@
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 15:04:27 by timschmi          #+#    #+#             */
-/*   Updated: 2024/03/21 12:33:16 by timschmi         ###   ########.fr       */
+/*   Updated: 2024/03/21 14:42:59 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "libft/libft.h"
 
 int	ft_putstr(const char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (str == NULL)

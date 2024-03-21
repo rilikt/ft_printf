@@ -6,12 +6,11 @@
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 15:34:03 by timschmi          #+#    #+#             */
-/*   Updated: 2024/03/21 13:15:16 by timschmi         ###   ########.fr       */
+/*   Updated: 2024/03/21 14:39:36 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "libft/libft.h"
 
 static int	ft_hexlen(unsigned int hex)
 {
@@ -33,10 +32,10 @@ static int	ft_hexlen(unsigned int hex)
 
 int	ft_puthex(long long int hex)
 {
-	int		len;
-	char	*arr;
-	int		i;
-	unsigned int uhex;
+	int				len;
+	char			*arr;
+	int				i;
+	unsigned int	uhex;
 
 	i = 1;
 	uhex = (unsigned int)hex;
@@ -59,12 +58,12 @@ int	ft_puthex(long long int hex)
 	return (len);
 }
 
-int	ft_putheX(long long int hex)
+int	ft_putupperhex(long long int hex)
 {
-	int		len;
-	char	*arr;
-	int		i;
-	unsigned int uhex;
+	int				len;
+	char			*arr;
+	int				i;
+	unsigned int	uhex;
 
 	i = 1;
 	uhex = (unsigned int)hex;
@@ -86,7 +85,6 @@ int	ft_putheX(long long int hex)
 	free(arr);
 	return (len);
 }
-
 
 // int main(void)
 // {
