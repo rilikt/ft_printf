@@ -6,7 +6,7 @@
 #    By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/11 13:00:34 by timschmi          #+#    #+#              #
-#    Updated: 2024/03/21 14:44:12 by timschmi         ###   ########.fr        #
+#    Updated: 2024/03/21 14:54:31 by timschmi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ OFILES = $(SRCS:.c=.o)
 CC = cc
 
 CFLAGS = -Wall -Wextra -Werror
-LDFLAGS= -L./libft -lft -L. -lftprintf
+LDFLAGS= -L. -lftprintf
 
 NAME = libftprintf.a
 

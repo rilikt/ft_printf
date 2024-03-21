@@ -6,16 +6,15 @@
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 14:03:25 by timschmi          #+#    #+#             */
-/*   Updated: 2024/03/21 14:39:39 by timschmi         ###   ########.fr       */
+/*   Updated: 2024/03/21 16:19:58 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_print(char c)
+static int	ft_print(const char c)
 {
-	write(1, &c, 1);
-	return (1);
+	return (write(1, &c, 1));
 }
 
 static int	ft_nbrlen(long int i)
@@ -45,17 +44,21 @@ int	ft_putnbr(long int i)
 	len = ft_nbrlen(i);
 	if (i < 0)
 	{
-		ft_print('-');
+		if (ft_print('-') == -1)
+			return (-1);
 		i = i * (-1);
 	}
 	if (i < 10)
 	{
-		ft_print(i + '0');
+		if (ft_print(i + '0') == -1)
+			return (-1);
 	}
 	else
 	{
-		ft_putnbr(i / 10);
-		ft_print(i % 10 + '0');
+		if (ft_putnbr(i / 10) == -1)
+			return (-1);
+		if (ft_print(i % 10 + '0') == -1)
+			return (-1);
 	}
 	return (len);
 }

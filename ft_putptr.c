@@ -6,7 +6,7 @@
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 17:02:44 by timschmi          #+#    #+#             */
-/*   Updated: 2024/03/21 14:39:42 by timschmi         ###   ########.fr       */
+/*   Updated: 2024/03/21 15:54:57 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,11 @@ static int	ft_putptrhex(long long int hex)
 
 	i = 1;
 	uhex = (unsigned long int)hex;
-	len = ft_hexlen(uhex);
-	arr = (char *)malloc(len + 1 * sizeof(char));
-	arr[len] = '\0';
-	len -= 1;
+	len = ft_hexlen(uhex) -1;
+	arr = (char *)malloc(len + 2 * sizeof(char));
+	if (arr == NULL)
+		return (-1);
+	arr[len +1] = '\0';
 	while (len >= 0)
 	{
 		i = uhex % 16;
@@ -64,9 +65,13 @@ int	ft_putptr(void *ptr)
 	int					len;
 
 	i = (unsigned long int)ptr;
-	write(1, "0x", 2);
+	if (write(1, "0x", 2) == -1)
+		return (-1);
 	len = ft_putptrhex(i);
-	return (len + 2);
+	if (len == -1)
+		return (-1);
+	else
+		return (len + 2);
 }
 
 // int main(void)
@@ -74,5 +79,5 @@ int	ft_putptr(void *ptr)
 // 	int i;
 
 // 	i = 0;
-// 	printf("%d\n", ft_putptr((void *)ULONG_MAX));
+// 	printf("%d\n", ft_putptr(""));
 // }

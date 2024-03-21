@@ -6,7 +6,7 @@
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 15:34:03 by timschmi          #+#    #+#             */
-/*   Updated: 2024/03/21 14:39:36 by timschmi         ###   ########.fr       */
+/*   Updated: 2024/03/21 16:28:43 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,23 +30,23 @@ static int	ft_hexlen(unsigned int hex)
 	return (len);
 }
 
-int	ft_puthex(long long int hex)
+int	ft_puthex(unsigned int hex)
 {
 	int				len;
 	char			*arr;
 	int				i;
-	unsigned int	uhex;
 
 	i = 1;
-	uhex = (unsigned int)hex;
-	len = ft_hexlen(uhex);
+	len = ft_hexlen(hex);
 	arr = (char *)malloc(len + 1 * sizeof(char));
+	if (arr == NULL)
+		return (-1);
 	arr[len] = '\0';
 	len -= 1;
 	while (len >= 0)
 	{
-		i = uhex % 16;
-		uhex /= 16;
+		i = hex % 16;
+		hex /= 16;
 		if (i < 10)
 			arr[len] = i + '0';
 		else if (i >= 10 && i <= 15)
@@ -58,23 +58,23 @@ int	ft_puthex(long long int hex)
 	return (len);
 }
 
-int	ft_putupperhex(long long int hex)
+int	ft_putupperhex(unsigned int hex)
 {
 	int				len;
 	char			*arr;
 	int				i;
-	unsigned int	uhex;
 
 	i = 1;
-	uhex = (unsigned int)hex;
-	len = ft_hexlen(uhex);
+	len = ft_hexlen(hex);
 	arr = (char *)malloc(len + 1 * sizeof(char));
+	if (arr == NULL)
+		return (-1);
 	arr[len] = '\0';
 	len -= 1;
 	while (len >= 0)
 	{
-		i = uhex % 16;
-		uhex /= 16;
+		i = hex % 16;
+		hex /= 16;
 		if (i < 10)
 			arr[len] = i + '0';
 		else if (i >= 10 && i <= 15)

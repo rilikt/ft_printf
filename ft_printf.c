@@ -6,7 +6,7 @@
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 14:39:04 by timschmi          #+#    #+#             */
-/*   Updated: 2024/03/21 14:44:38 by timschmi         ###   ########.fr       */
+/*   Updated: 2024/03/21 16:16:16 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,17 +51,16 @@ static int	ft_printcheck(const char *str, va_list args)
 	{
 		len = 0;
 		if (!(ft_checkset(&str[i])) && str[i] != '%')
-		{
-			write(1, &str[i], 1);
-			count++;
-		}
-		if (ft_checkset(&str[i]))
+			len = write(1, &str[i], 1);
+		if (ft_checkset(&str[i]) && len != -1)
 		{
 			len = ft_ident(str[i + 1], args);
 			i += 2;
 		}
 		else
 			i++;
+		if (len == -1)
+			return (-1);
 		count += len;
 	}
 	return (count);
@@ -77,23 +76,11 @@ int	ft_printf(const char *str, ...)
 	return (count);
 }
 
-// // int main(void)
-// // {
-// // 	int i = -2147483648;
-// // 	int j = 777;
-// // 	int hex = 450;
-// // 	unsigned int u = 4294967295;
-// // 	char *str = "test";
-// // 	char c = 'A';
+// int main(void)
+// {
+// 	int i = ft_printf("\001\002\007\v\010\f\r\n");
+// 	printf("\nReturn: %d\n", i);
 
-// // 	int out = ft_printf("%s", str);
-// // 	printf("%d\n", out);
-
-// // // 	ft_printf("Int (d): %d\nInt (i): %i\nUnsigned int (u): %u\nHex (x):
-// 		%x\nHex (X): %X\nAdress (p): %p\nString (s): %s\nChar (c):
-// 		%c\nPercent (%%): %%\n", i, j, u, hex, hex, (void *)&i, str, c);
-
-// // //  	printf("Int (d): %d\nInt (i): %i\nUnsigned int (u): %u\nHex (x):
-// 		%x\nHex (X): %X\nAdress (p): %p\nString (s): %s\nChar (c):
-// 		%c\nPercent (%%): %%\n", i, j, u, hex, hex, (void *)&i, str, c);
-// // }
+// 	int j = printf("\001\002\007\v\010\f\r\n");
+// 	printf("\nOG.Return: %d\n", j);
+// }
