@@ -6,7 +6,7 @@
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 14:03:25 by timschmi          #+#    #+#             */
-/*   Updated: 2024/03/20 13:10:47 by timschmi         ###   ########.fr       */
+/*   Updated: 2024/03/21 12:28:19 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ int	ft_putunbr(unsigned int i)
 }
 
 
-int main(void)
-{
-	int i = -10;
-	printf("%d\n", ft_putunbr(i));
-}
+// int main(void)
+// {
+// 	int i = -10;
+// 	printf("%d\n", ft_putunbr(i));
+// }

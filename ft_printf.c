@@ -6,7 +6,7 @@
 /*   By: timschmi <timschmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 14:39:04 by timschmi          #+#    #+#             */
-/*   Updated: 2024/03/20 13:38:21 by timschmi         ###   ########.fr       */
+/*   Updated: 2024/03/21 13:19:36 by timschmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,11 @@ static int	ft_ident(const char c, va_list args)
 		len++;
 	}
 	else if (c == 'x')
-		ft_puthex(va_arg(args, int));
+		len = ft_puthex(va_arg(args, int));
 	else if (c == 'X')
-		ft_putheX(va_arg(args, int));
+		len = ft_putheX(va_arg(args, int));
 	else if (c == 'p')
-		ft_putptr(va_arg(args, void *));
+		len = ft_putptr(va_arg(args, void *));
 	else if (c == '%')
 	{
 		write(1, "%", 1);
@@ -88,20 +88,20 @@ int	ft_printf(const char *str, ...)
 	return (count);
 }
 
-int main(void)
-{
-	int i = -2147483648;
-	int j = 777;
-	int hex = 450;
-	unsigned int u = 4294967295;
-	char *str = "test";
-	char c = 'A';
+// int main(void)
+// {
+// 	int i = -2147483648;
+// 	int j = 777;
+// 	int hex = 450;
+// 	unsigned int u = 4294967295;
+// 	char *str = "test";
+// 	char c = 'A';
 	
-	int out = ft_printf("%s", str);
-	printf("%d\n", out);
+// 	int out = ft_printf("%s", str);
+// 	printf("%d\n", out);
 
 
-// 	ft_printf("Int (d): %d\nInt (i): %i\nUnsigned int (u): %u\nHex (x): %x\nHex (X): %X\nAdress (p): %p\nString (s): %s\nChar (c): %c\nPercent (%%): %%\n", i, j, u, hex, hex, (void *)&i, str, c);
+// // 	ft_printf("Int (d): %d\nInt (i): %i\nUnsigned int (u): %u\nHex (x): %x\nHex (X): %X\nAdress (p): %p\nString (s): %s\nChar (c): %c\nPercent (%%): %%\n", i, j, u, hex, hex, (void *)&i, str, c);
 
-//  	printf("Int (d): %d\nInt (i): %i\nUnsigned int (u): %u\nHex (x): %x\nHex (X): %X\nAdress (p): %p\nString (s): %s\nChar (c): %c\nPercent (%%): %%\n", i, j, u, hex, hex, (void *)&i, str, c);
-}
+// //  	printf("Int (d): %d\nInt (i): %i\nUnsigned int (u): %u\nHex (x): %x\nHex (X): %X\nAdress (p): %p\nString (s): %s\nChar (c): %c\nPercent (%%): %%\n", i, j, u, hex, hex, (void *)&i, str, c);
+// }
